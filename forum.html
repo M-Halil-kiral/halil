@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadarForum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, color 0.3s;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .post {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        .dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+        .dark-mode .container {
+            background: #333;
+            color: #fff;
+        }
+        .toggle-btn {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<ul>
+    <li><a href="index.html">Ana Sayfa</a></li>
+    <li><a href="fikstur.html">Fikstür</a></li>
+    <li><a href="puan-durumu.html">Puan Durumu</a></li>
+    <li><a href="takimlar.html">Takımlar</a></li>
+    <li><a href="forum.html">forum</a></li>
+   
+</ul>
+
+<body>
+    <div class="container">
+        <button class="toggle-btn" onclick="toggleMode()">Açık/Koyu Mod</button>
+        <h2>Forum</h2>
+        <input type="text" id="title" placeholder="Başlık">
+        <textarea id="content" placeholder="Mesajınızı girin..."></textarea>
+        <button onclick="addPost()">Gönder</button>
+        <div id="posts"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", loadPosts);
+
+        function addPost() {
+            var title = document.getElementById("title").value;
+            var content = document.getElementById("content").value;
+            
+            if (title === "" || content === "") {
+                alert("Lütfen başlık ve mesaj giriniz.");
+                return;
+            }
+
+            var postDiv = document.createElement("div");
+            postDiv.classList.add("post");
+            postDiv.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+            document.getElementById("posts").appendChild(postDiv);
+            
+            savePost(title, content);
+            
+            document.getElementById("title").value = "";
+            document.getElementById("content").value = "";
+        }
+
+        function savePost(title, content) {
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.push({ title, content });
+            localStorage.setItem("posts", JSON.stringify(posts));
+        }
+
+        function loadPosts() {
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.forEach(post => {
+                var postDiv = document.createElement("div");
+                postDiv.classList.add("post");
+                postDiv.innerHTML = `<h3>${post.title}</h3><p>${post.content}</p>`;
+                document.getElementById("posts").appendChild(postDiv);
+            });
+        }
+
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("darkMode") === "true") {
+                document.body.classList.add("dark-mode");
+            }
+        });
+    </script>
+    <img src="RADARSCORELOGO.jpg" alt="Radarscore Logo" width="300" height="300" style="position: absolute; top: 10px; right: 10px;">
+
+</body>
+</html>
