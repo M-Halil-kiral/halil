@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa</title>
+    <link rel="stylesheet" href="style.css">
+    <p>Giriş yap sayfasından Anasayfaya isim verisini çekiyor sağ üst köşede</p>
+    <style>
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav ul a:hover {
+            text-decoration: underline;
+        }
+
+       
+        #user-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-weight: bold;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        
+        main {
+            text-align: center;
+            padding: 20px;
+        }
+
+        main h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RADARSCORE</h1>
+        <nav>
+            <ul>
+                <a href="index.html">Ana Sayfa</a>
+                <a href="fikstur.html">Fikstür</a>
+                <a href="puan-durumu.html">Puan Durumu</a>
+                <a href="takimlar.html">Takımlar</a>
+                <a href="forum.html">Forum</a>
+                <a href="kayit.html">Kayıt Ol</a>
+                <a href="giris.html">Giriş Yap</a>
+            </ul>
+        </nav> 
+    </header>
+
+   
+    <div id="user-info"></div>
+
+    <script>
+        
+        window.onload = function() {
+            var username = localStorage.getItem("username");
+            if (username) {
+                document.getElementById("user-info").innerText = "Hoş geldiniz, " + username + "!";
+            }
+        };
+    </script>
+
+    <main>
+        <h2>Hoş Geldiniz!</h2>
+        <p>Bu web sitesi Süper Lig maçlarının fikstürünü, puan durumunu ve takımlarla ilgili bilgileri içermektedir.</p>
+    </main>
+
+    <img src="Gorseller/RADARSCORELOGO.jpg" alt="Radarscore Logo" width="300" height="300">
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kayıt Ol</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>RADAR SCORE</h1></header>
+  <nav>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="fikstur.html">Fikstür</a>
+    <a href="puan-durumu.html">Puan Durumu</a>
+    <a href="takimlar.html">Takımlar</a>
+    <a href="forum.html">Forum</a>
+    <a href="kayit.html">Kayıt Ol</a>
+    <a href="giris.html">Giriş Yap</a>
+  </nav>
+
+  <div class="container">
+    <h2>Kayıt Ol</h2>
+    <form id="registerForm">
+      <input type="text" id="kullaniciAdi" placeholder="Kullanıcı Adı" required><br><br>
+      <input type="password" id="sifre" placeholder="Şifre" required><br><br>
+      <button type="submit">Kayıt Ol</button>
+    </form>
+  </div>
+
+  <footer><p>&copy; 2025 Radar Score.</p></footer>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const kullaniciAdi = document.getElementById("kullaniciAdi").value;
+      const sifre = document.getElementById("sifre").value;
+      localStorage.setItem("kullaniciAdi", kullaniciAdi);
+      localStorage.setItem("sifre", sifre);
+      alert("Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz.");
+      window.location.href = "giris.html";
+    });
+  </script>
+</body>
+</html>

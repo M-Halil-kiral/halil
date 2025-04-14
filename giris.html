@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giriş Yap</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+   
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #444;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .container button:hover {
+      background-color: #555;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RADAR SCORE</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="fikstur.html">Fikstür</a>
+    <a href="puan-durumu.html">Puan Durumu</a>
+    <a href="takimlar.html">Takımlar</a>
+    <a href="forum.html">Forum</a>
+    <a href="kayit.html">Kayıt Ol</a>
+    <a href="giris.html">Giriş Yap</a>
+  </nav>
+
+  <div class="container">
+    <h2>Giriş Yap</h2>
+    <form id="loginForm">
+      <input type="text" id="girisAdi" placeholder="Kullanıcı Adı" required><br><br>
+      <input type="password" id="girisSifre" placeholder="Şifre" required><br><br>
+      <button type="submit">Giriş Yap</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Radar Score.</p>
+  </footer>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const girisAdi = document.getElementById("girisAdi").value;
+      const girisSifre = document.getElementById("girisSifre").value;
+
+      const kayitliAd = localStorage.getItem("kullaniciAdi");
+      const kayitliSifre = localStorage.getItem("sifre");
+
+      if (girisAdi === kayitliAd && girisSifre === kayitliSifre) {
+        
+        localStorage.setItem("username", girisAdi);
+
+        alert("Giriş başarılı! Anasayfaya yönlendiriliyorsunuz.");
+        window.location.href = "index.html";  
+      } else {
+        alert("Hatalı kullanıcı adı veya şifre!");
+      }
+    });
+  </script>
+</body>
+</html>
