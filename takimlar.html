@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Takımlar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: #222;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      background-color: #444;
+      border-radius: 5px;
+    }
+
+    nav ul li a:hover {
+      background-color: #666;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    .card a {
+      display: block;
+      padding: 15px;
+      background-color: #eee;
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .card a:hover {
+      background-color: #ddd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>RADARSCORE</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="fikstur.html">Fikstür</a></li>
+        <li><a href="puan-durumu.html">Puan Durumu</a></li>
+        <li><a href="takimlar.html">Takımlar</a></li>
+        <li><a href="forum.html">Forum</a></li>
+        <li><a href="kayit.html">Kayıt Ol</a></li>
+        <li><a href="giris.html">Giriş Yap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Takım Kartları</h2>
+    <div class="card-grid">
+      
+      <div class="card">
+        <img src="Gorseller/gs.png" alt="Galatasaray">
+        <a href="https://www.galatasaray.org" target="_blank">Galatasaray</a>
+      </div>
+
+      <div class="card">
+        <img src="Gorseller/fb.png" alt="Fenerbahçe">
+        <a href="https://www.fenerbahce.org" target="_blank">Fenerbahçe</a>
+      </div>
+
+      <div class="card">
+        <img src="Gorseller/besiktas.png" alt="Beşiktaş">
+        <a href="https://www.bjk.com.tr" target="_blank">Beşiktaş</a>
+      </div>
+
+      <div class="card">
+        <img src="Gorseller/ts.png" alt="Trabzonspor">
+        <a href="https://www.trabzonspor.org.tr" target="_blank">Trabzonspor</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Radar Score. Tüm hakları saklıdır.</p>
+  </footer>
+
+</body>
+</html>
